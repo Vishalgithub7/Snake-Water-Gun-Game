@@ -1,42 +1,19 @@
-# Snake-Water-Gun-Game
-Developed a Snake, Water, Gun game implementing game logic with conditional statements and random number generation (stdlib.h).
+# 🐍 Snake, Water, Gun Game
+A digital version of the popular childhood game (similar to Rock-Paper-Scissors) built entirely in C.
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+## 📝 Description
+The player chooses between Snake (s), Water (w), or Gun (g). The computer makes a random choice. The program determines the winner based on the following rules:
+- **Snake** drinks **Water** (Snake wins)
+- **Water** douses **Gun** (Water wins)
+- **Gun** kills **Snake** (Gun wins)
 
-int snakeWaterGun(char you, char comp) {
-    // returns 1 if you win, -1 if you lose, 0 if draw
-    if (you == comp) return 0;
+## 🛠️ Concepts Covered
+- **Modular Programming**: Using functions for game logic.
+- **Character Handling**: Processing `char` inputs and outputs.
+- **Logic Mapping**: Converting random integers into game choices.
+- **Pointer-like logic**: Efficiently returning values to the `main` function.
 
-    if (you == 's' && comp == 'w') return 1;
-    else if (you == 'w' && comp == 's') return -1;
-
-    if (you == 's' && comp == 'g') return -1;
-    else if (you == 'g' && comp == 's') return 1;
-
-    if (you == 'w' && comp == 'g') return 1;
-    else if (you == 'g' && comp == 'w') return -1;
-}
-
-int main() {
-    char you, comp;
-    srand(time(0));
-    int number = rand() % 100 + 1;
-
-    if (number < 33) comp = 's';
-    else if (number > 33 && number < 66) comp = 'w';
-    else comp = 'g';
-
-    printf("Enter 's' for Snake, 'w' for Water or 'g' for Gun: ");
-    scanf("%c", &you);
-
-    int result = snakeWaterGun(you, comp);
-    printf("You chose %c and computer chose %c. ", you, comp);
-
-    if (result == 0) printf("Game Draw!\n");
-    else if (result == 1) printf("You Win!\n");
-    else printf("You Lose!\n");
-
-    return 0;
-}
+## 🚀 How to Run
+1. Clone the repository.
+2. Compile using GCC: `gcc swg_game.c -o swg_game`
+3. Run the executable: `./swg_game`
